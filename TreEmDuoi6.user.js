@@ -985,7 +985,7 @@
     function buildButton() {
         var btn = document.createElement('button');
         btn.id = BTN_ID;
-        btn.innerHTML = '\u26a1 Thao t\u00e1c nhanh <span style="font-size:10px;opacity:0.8">\u25bc</span>';
+        btn.innerHTML = '\u26a1 Thao t\u00e1c nhanh TE <6T <span style="font-size:10px;opacity:0.8">\u25bc</span>';
         btn.title = 'M\u1edf menu thao t\u00e1c nhanh';
         Object.assign(btn.style, {
             padding: '6px 14px',
