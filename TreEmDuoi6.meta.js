@@ -15,7 +15,7 @@
 // ==/UserScript==
 
 // ==Changelog==
-// 1.3 | 2026-07-19 | Thay doi cap nhat
+// 1.3 | 2026-07-19 | Thêm mục "Khám lâm sàng", tự động chọn 49 trường radio
 // 1.2 | 2026-07-19 | Them muc "Kham lam sang" tu dong chon 48 truong radio trong form Kham lam sang tre duoi 6 tuoi
 // 1.1 | 2026-07-19 | Doi nut ve lai "Thao tac nhanh" dang dropdown menu voi 2 muc: Cap nhat phien ban, Tac gia
 // 1.0 | 2026-07-19 | Phien ban dau tien: nut chen truoc "Luu", he thong license bao mat (machine-id + ma kich hoat)
