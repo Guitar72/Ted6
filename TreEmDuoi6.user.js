@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TreEmDuoi6
 // @namespace    http://tampermonkey.net/
-// @version      1.3
+// @version      1.5
 // @description  Nut Thao tac nhanh (menu: Kham lam sang, Cap nhat phien ban, Tac gia)
 // @author       Auto-generated
 // @match        https://quanlyskcd.medinet.org.vn/*
@@ -879,9 +879,9 @@
         'Bung_LoHauMon': 0,               // Binh thuong
         'Bung_CoQuanSinhDucNgoai': 0,     // Binh thuong
         'CoXuong_VanDongKDX': 0,          // Khong
-        'CoXuong_PhanXaBu': 0,            // Khong
-        'CoXuong_PhanXaNam': 0,           // Khong
-        'CoXuong_PhanXaMoro': 0,          // Khong
+        'CoXuong_PhanXaBu': 1,            // Co
+        'CoXuong_PhanXaNam': 1,           // Co
+        'CoXuong_PhanXaMoro': 1,          // Co
         'CoXuong_TruongLuc': 0,           // Binh Thuong
         'CoXuong_KhopHang': 0,            // Binh Thuong
         'CoXuong_PhanXaCo': 0,            // Binh thuong
@@ -997,8 +997,8 @@
     function buildButton() {
         var btn = document.createElement('button');
         btn.id = BTN_ID;
-        btn.innerHTML = '\u26a1 Thao t\u00e1c nhanh <span style="font-size:10px;opacity:0.8">\u25bc</span>';
-        btn.title = 'M\u1edf menu thao t\u00e1c nhanh';
+        btn.innerHTML = '\u26a1 Thao t\u00e1c nhanh TE &lt;6T <span style="font-size:10px;opacity:0.8">\u25bc</span>';
+        btn.title = 'M\u1edf menu thao t\u00e1c nhanh (Kh\u00e1m tr\u1ebb em d\u01b0\u1edbi 6 tu\u1ed5i)';
         Object.assign(btn.style, {
             padding: '6px 14px',
             background: 'transparent',
@@ -1060,16 +1060,30 @@
         });
         if (!saveBtnEl) return;
 
-        if (document.getElementById(WRAPPER_ID)) return;
-
+        var wrapper = document.getElementById(WRAPPER_ID);
         var saveParent = getDirectParentInContainer(container, saveBtnEl);
-        var wrapper = buildButton();
+
+        if (!wrapper) {
+            wrapper = buildButton();
+            if (saveParent && saveParent.parentElement === container) {
+                container.insertBefore(wrapper, saveParent);
+            } else {
+                container.insertBefore(wrapper, container.firstChild);
+            }
+            if (_injectedContainers) _injectedContainers.add(container);
+            return;
+        }
+
+        // Da co wrapper roi: dam bao no LUON nam NGAY TRUOC nut "Luu", tranh
+        // truong hop Angular render lai container va lam wrapper bi day ra
+        // sau nut Luu (hoac ra khoi container hien tai).
         if (saveParent && saveParent.parentElement === container) {
-            container.insertBefore(wrapper, saveParent);
-        } else {
+            if (wrapper.nextSibling !== saveParent || wrapper.parentElement !== container) {
+                container.insertBefore(wrapper, saveParent);
+            }
+        } else if (wrapper.parentElement !== container) {
             container.insertBefore(wrapper, container.firstChild);
         }
-        if (_injectedContainers) _injectedContainers.add(container);
     }
 
     function scanForContainers() {

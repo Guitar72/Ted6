@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TreEmDuoi6
 // @namespace    http://tampermonkey.net/
-// @version      1.3
+// @version      1.5
 // @description  Nut Thao tac nhanh (menu: Kham lam sang, Cap nhat phien ban, Tac gia)
 // @author       Auto-generated
 // @match        https://quanlyskcd.medinet.org.vn/*
@@ -16,6 +16,8 @@
 // ==/UserScript==
 
 // ==Changelog==
+// 1.5 | 2026-07-20 | Doi 3 muc Phan xa bu / Phan xa nam / Phan xa Moro trong "Kham lam sang" thanh "Co"
+// 1.4 | 2026-07-20 | Doi ten nut thanh "Thao tac nhanh TE <6T", co dinh vi tri luon ngay truoc nut "Luu" (khong bi nhay ra sau nua)
 // 1.3 | 2026-07-19 | Nut cai dat phien ban moi gio mo thang Tampermonkey > Tien ich (GM_openInTab), URL da tu dong copy san
 // 1.2 | 2026-07-19 | Them muc "Kham lam sang" tu dong chon 48 truong radio trong form Kham lam sang tre duoi 6 tuoi
 // 1.1 | 2026-07-19 | Doi nut ve lai "Thao tac nhanh" dang dropdown menu voi 2 muc: Cap nhat phien ban, Tac gia
