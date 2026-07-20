@@ -9,6 +9,7 @@
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @grant        GM_info
+// @grant        GM_openInTab
 // @grant        unsafeWindow
 // @updateURL    https://raw.githubusercontent.com/Guitar72/Ted6/refs/heads/main/TreEmDuoi6.meta.js
 // @downloadURL  https://raw.githubusercontent.com/Guitar72/Ted6/refs/heads/main/TreEmDuoi6.user.js
@@ -628,25 +629,36 @@
             });
             guide.innerHTML =
                 '<b style="font-size:15px">' + (copied ? '\u2705 \u0110\u00e3 copy URL!' : '\ud83d\udccb Sao ch\u00e9p URL b\u00ean d\u01b0\u1edbi') + '</b><br>' +
-                '1\ufe0f\u20e3 M\u1edf trang Tampermonkey b\u00ean d\u01b0\u1edbi<br>' +
-                '2\ufe0f\u20e3 M\u1ee5c <b>Import t\u1eeb URL</b> \u2192 d\u00e1n URL \u2192 <b>Import</b><br>' +
-                '3\ufe0f\u20e3 Nh\u1ea5n <b>C\u00e0i \u0111\u1eb7t</b> \u2192 xong!';
+                '1\ufe0f\u20e3 Nh\u1ea5n n\u00fat b\u00ean d\u01b0\u1edbi \u0111\u1ec3 m\u1edf Tampermonkey \u2192 Ti\u1ec7n \u00edch<br>' +
+                '2\ufe0f\u20e3 D\u00e1n URL v\u00e0o \u00f4 <b>C\u00e0i t\u1eeb URL</b> \u2192 nh\u1ea5n <b>C\u00e0i \u0111\u1eb7t</b><br>' +
+                '3\ufe0f\u20e3 T\u1ea3i l\u1ea1i trang web <b>(F5)</b> \u2192 xong!';
             var urlBox = document.createElement('div');
             Object.assign(urlBox.style, {
                 background: '#f3f4f6', border: '1px solid #d1d5db',
                 borderRadius: '8px', padding: '8px 10px',
                 fontSize: '12px', color: '#374151', wordBreak: 'break-all',
                 marginBottom: '10px', fontFamily: 'monospace',
+                cursor: 'pointer', userSelect: 'all',
             });
+            urlBox.title = 'Click \u0111\u1ec3 ch\u1ecdn to\u00e0n b\u1ed9';
             urlBox.textContent = UPDATE_RAW_URL;
-            var openBtn = document.createElement('a');
-            openBtn.href = 'https://chromewebstore.google.com/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo';
-            openBtn.target = '_blank';
-            openBtn.textContent = '\ud83d\udd17 M\u1edf Tampermonkey Dashboard';
+            urlBox.addEventListener('click', function () {
+                try { GM_setClipboard(UPDATE_RAW_URL); } catch (e) {}
+                window.getSelection().selectAllChildren(urlBox);
+            });
+            var openBtn = document.createElement('button');
+            openBtn.textContent = '\ud83d\udd17 M\u1edf Tampermonkey \u2192 Ti\u1ec7n \u00edch';
             Object.assign(openBtn.style, {
-                display: 'block', textAlign: 'center', padding: '10px',
-                background: '#0369a1', color: '#fff', borderRadius: '8px',
-                textDecoration: 'none', fontSize: '13px', fontWeight: '700',
+                display: 'block', width: '100%', textAlign: 'center', padding: '10px',
+                background: '#16a34a', color: '#fff', border: 'none', borderRadius: '8px',
+                cursor: 'pointer', fontSize: '13px', fontWeight: '700',
+            });
+            openBtn.addEventListener('click', function () {
+                try {
+                    GM_openInTab('chrome-extension://dhdgffkkebhmkfjojejmpbldmpobfkfo/options.html#nav=utils', false);
+                } catch (e) {
+                    window.open('chrome-extension://dhdgffkkebhmkfjojejmpbldmpobfkfo/options.html#nav=utils', '_blank');
+                }
             });
             body.insertBefore(guide, installBtn);
             body.insertBefore(urlBox, installBtn);
@@ -985,7 +997,7 @@
     function buildButton() {
         var btn = document.createElement('button');
         btn.id = BTN_ID;
-        btn.innerHTML = '\u26a1 Thao t\u00e1c nhanh TE <6T <span style="font-size:10px;opacity:0.8">\u25bc</span>';
+        btn.innerHTML = '\u26a1 Thao t\u00e1c nhanh <span style="font-size:10px;opacity:0.8">\u25bc</span>';
         btn.title = 'M\u1edf menu thao t\u00e1c nhanh';
         Object.assign(btn.style, {
             padding: '6px 14px',
