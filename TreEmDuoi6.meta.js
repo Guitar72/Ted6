@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TreEmDuoi6
 // @namespace    http://tampermonkey.net/
-// @version      1.4
+// @version      1.3
 // @description  Nut Thao tac nhanh (menu: Kham lam sang, Cap nhat phien ban, Tac gia)
 // @author       Auto-generated
 // @match        https://quanlyskcd.medinet.org.vn/*
