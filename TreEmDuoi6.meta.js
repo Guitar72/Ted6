@@ -16,10 +16,10 @@
 // ==/UserScript==
 
 // ==Changelog==
-// 1.5 | 2026-07-20 | Doi 3 muc Phan xa bu / Phan xa nam / Phan xa Moro trong "Kham lam sang" thanh "Co"
-// 1.4 | 2026-07-20 | Doi ten nut thanh "Thao tac nhanh TE <6T", co dinh vi tri luon ngay truoc nut "Luu" (khong bi nhay ra sau nua)
-// 1.3 | 2026-07-19 | Nut cai dat phien ban moi gio mo thang Tampermonkey > Tien ich (GM_openInTab), URL da tu dong copy san
-// 1.2 | 2026-07-19 | Them muc "Kham lam sang" tu dong chon 48 truong radio trong form Kham lam sang tre duoi 6 tuoi
-// 1.1 | 2026-07-19 | Doi nut ve lai "Thao tac nhanh" dang dropdown menu voi 2 muc: Cap nhat phien ban, Tac gia
-// 1.0 | 2026-07-19 | Phien ban dau tien: nut chen truoc "Luu", he thong license bao mat (machine-id + ma kich hoat)
+// 1.5 | 2026-07-20 | Đổi 3 mục Phản xạ bú / Phản xạ nắm / Phản xạ Moro trong "Khám lâm sàng" thành "Có"
+// 1.4 | 2026-07-20 | Đổi tên nút thành "Thao tác nhanh TE <6T", cố định vị trí luôn ngay trước nút "Lưu" (không bị nhảy ra sau nữa)
+// 1.3 | 2026-07-19 | Nút cài đặt phiên bản mới giờ mở thẳng Tampermonkey > Tiện ích (GM_openInTab), URL đã tự động copy sẵn
+// 1.2 | 2026-07-19 | Thêm mục "Khám lâm sàng" tự động chọn 48 trường radio trong form Khám lâm sàng trẻ dưới 6 tuổi
+// 1.1 | 2026-07-19 | Đổi nút về lại "Thao tác nhanh" dạng dropdown menu với 2 mục: Cập nhật phiên bản, Tác giả
+// 1.0 | 2026-07-19 | Phiên bản đầu tiên: nút chèn trước "Lưu", hệ thống license bảo mật (machine-id + mã kích hoạt)
 // ==/Changelog==
